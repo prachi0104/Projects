@@ -1,0 +1,240 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page %}
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #222e2e;
+        {% comment %} padding-bottom: 100px; {% endcomment %}
+    }
+  
+    #contact {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        color: white;
+        
+    }
+  
+    .section-header {
+        font: 300 60px 'Oswald', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 6px;
+        margin: 40px 0;
+    }
+  
+    .contact-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 900px;
+        margin: 0 auto;
+       
+    }
+  
+    .form-horizontal {
+        max-width: 400px;
+        font-family: 'Lato';
+        font-weight: 400;
+        color: white;
+        margin-right: 20px;
+    }
+  
+    .form-control, 
+    textarea {
+        background-color: white;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+  
+    .send-button {
+        height: 40px;
+        width: 100%;
+        background-color: blue;
+        border: none;
+        color: #fff;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+  
+    .send-button:hover {
+        background-color: #5029bc;
+    }
+  
+    .alt-send-button {
+        width: 100%;
+        height: 40px;
+        overflow: hidden;
+        transition: all .2s ease-in-out;
+    }
+  
+    .send-text {
+        display: block;
+        margin-top: 10px;
+        font: 700 12px 'Lato', sans-serif;
+        letter-spacing: 2px;
+    }
+  
+    .direct-contact-container {
+        max-width: 400px;
+        color: white;
+        text-align: left;
+    }
+  
+    .contact-list {
+        list-style-type: none;
+        padding: 0;
+    }
+  
+    .list-item {
+        line-height: 2;
+    }
+  
+    .contact-text {
+        font: 300 18px 'Lato', sans-serif;
+        letter-spacing: 1.9px;
+        color: white;
+    }
+  
+    .social-media-list {
+        text-align: center;
+        margin-top: 20px;
+    }
+  
+    .social-media-list li {
+        display: inline-block;
+        margin: 0 5px;
+    }
+  
+    .social-media-list li a {
+        color: white;
+        font-size: 24px;
+        transition: color 0.3s ease;
+    }
+  
+    .social-media-list li a:hover {
+        color: white;
+    }
+  
+    hr {
+        border-color: white;
+        margin: 20px 0;
+    }
+  
+    .copyright {
+        font: 200 14px 'Oswald', sans-serif;
+        color: white;
+        letter-spacing: 1px;
+    }
+  
+    @media screen and (max-width: 900px) {
+        .form-horizontal {
+            margin-right: 0;
+        }
+    }
+
+    {% comment %} added css for quote purpose {% endcomment %}
+
+    .image-container {
+        position: relative;
+    }
+    
+    .service-description {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        background-color: rgba(10   , 10, 10, 40%); /* Adjust opacity as needed */
+        padding: 50px;
+        margin-top:-690px;
+        width: 100%;
+    }
+    
+    .service-description h1 {
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+    
+    .service-description p {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    
+    .service-description ol {
+        margin-left: 0;
+        padding-left: 20px;
+        list-style-position: inside;
+    }
+    
+    .service-description ol li {
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+   
+</style>
+
+<div class="div2" id="about">
+    <div class="image-container">
+        <!-- <img class="img3" src="{% static 'image/food1.jpg' %}" alt=""> -->
+        <div class="service-description">
+            
+            <ul>
+                <section id="contact">
+                    <h1 class="section-header" style="color:blue;">Contact Us</h1>
+                    <div class="contact-wrapper">
+                        <form id="contact-form" class="form-horizontal" role="form" action='{%url "contactdetails"%}' method="POST">
+                                {% csrf_token %}
+                            <div class="form-group">
+                                <input style="margin-left:1px;" type="text" class="form-control" id="name" placeholder="Name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="email" placeholder="Email" name="email" required>
+                            </div>
+                            <textarea class="form-control" rows="5" placeholder="Message" name="message" required></textarea>
+                            <button class="send-button" id="submit" type="submit" value="Send">
+                                <div class="alt-send-button">
+                                    <span class="send-text">Send</span>
+                                </div>
+                            </button>
+                        </form>
+                        <div class="direct-contact-container">
+                            <ul class="contact-list">
+                                <li class="list-item">
+                                    <i class="fa fa-map-marker fa-2x"></i>
+                                    <span class="contact-text">Vadodara, Gujarat</span>
+                                </li><br>
+                                <li class="list-item">
+                                    <i class="fa fa-phone fa-2x"></i>
+                                    <span class="contact-text"><a style="margin-left:3px;" href="tel:1-212-555-5555" title="Give me a call">+91 9979084409</a></span>
+                                </li>
+                                <li class="list-item">
+                                    <i class="fa fa-envelope fa-2x"></i>
+                                    <span class="contact-text"><a style="margin-left:3px;" href="mailto:#" title="Send me an email">barotprachi159@gmail.com</a></span>
+                                </li>
+                            </ul>
+                            <hr>
+                            <ul class="social-media-list">
+                                <li><a href="https://www.linkedin.com/jobs/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                               
+                                <li><a href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                            </ul>
+                            <hr>
+                            <div class="copyright">&copy; ALL OF THE RIGHTS RESERVED</div>
+                        </div>
+                    </div>
+                </section>
+            </ul>
+        </div>
+    </div>
+
+
+{% endblock page %}

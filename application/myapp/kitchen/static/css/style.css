@@ -1,0 +1,165 @@
+.img1{
+    position: relative;
+    height: 1100px; /* i have removed auto */
+    width: 100%;
+}
+nav{
+ position: absolute;
+ top: 20px;
+ left: 20px;
+
+}
+
+li{
+ display: inline-block;
+}
+li a{
+ color: white;
+ text-decoration: none;
+ margin-left: 69px;
+}
+.button1{
+ border:none;
+ color:white;
+ background-color: blue;
+ border-radius: 16px;
+ padding: 10px 23px;
+ margin-left: 278px;
+}
+.div1{
+ text-align: center;
+ color: white;
+ position:absolute;
+ top: 151px;
+ left: 458px;
+}
+.button1{
+ padding: 10px 15px;
+ border:none;
+ color: white;
+ background-color: blue;
+ margin-left: 20px;
+}
+
+.img3{
+ height: 373px;
+ width: 405px;
+ margin-left: 73px;
+ float: left;
+ position: relative;
+ margin-right:52px;
+ margin-top:9px;
+/*  opacity: 0.3; */
+}
+.img3:hover{
+ opacity: 1.0;
+}
+.div2{
+ margin-top: 20px;
+ margin-bottom: 20px;
+
+}
+.img4{
+ height: 132px;
+ width:455px;
+ float:rigth;
+ margin-left: 45px;
+ opacity: 0.3;
+}
+.img4:hover{
+ opacity: 1.0;
+}
+.div3{
+ text-align: center;
+ margin-top: 50px;
+}
+.button2{
+ background-color:#fcc943;
+ color: white;
+ padding: 10px 22px;
+ border: none;
+ margin-left:603px ;
+}
+.div5{
+ clear: both;
+ display: inline-block;
+ text-align: center;
+ margin-left: 101px;
+}
+.p1{
+ margin-top: -11px;
+ clear: both;
+}
+.button4{
+ border: none;
+ background-color: #9a0508;
+ color: white;
+ padding: 8px 18px;
+ font-size: 12px ;
+}
+.button5{
+ background-color:#fcc943;
+ color: white;
+ padding: 10px 22px;
+ border: none;
+ margin-left:20px ;
+
+}
+.div4{
+ margin-top: 100px;
+ margin-bottom: 20px;
+ float: left;
+ margin-left: 100px;
+ position: absolute;
+
+
+}
+
+input[type=text]{
+ padding: 8px 8px;
+ margin: 7px;
+
+}
+.div6{
+ margin-top: -247px;
+ margin-left: 487px;
+ position: absolute;
+}
+.png{
+ height: 44px;
+ width: 44px;
+}
+
+.active{
+ background-color:blue ;
+ color:white;
+
+}
+li a:hover:not(.active){
+ background-color: blue;
+ color: white;
+ padding: 8px;
+ border-radius: 7px;
+}
+
+/* Added from GPT */
+.dropdowns {
+    position: relative; /* Change absolute to relative */
+    display: inline-block; /* Add this to make the dropdown inline with other tabs */
+}
+
+.dropdown {
+    margin: 0 10px;
+    margin-left: 0; /* Remove the left margin to align dropdowns properly */
+}
+
+/* Remove the blur background and set background color when active */
+.dropdown-toggle:focus {
+    background-color: blue !important;
+}
+
+/* Set background color when dropdown is open */
+.dropdown-toggle:active {
+    background-color: blue !important;
+}
+

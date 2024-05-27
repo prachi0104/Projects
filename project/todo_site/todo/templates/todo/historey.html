@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card {
+       
+       box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5),
+                   0 6px 20px 0 rgba(0,0,0,0.39);
+       background:#00246B;
+       color: white; /* lightpink; */
+       margin-bottom : 5%;
+       border-radius: 25px;
+       padding : 2%;
+       overflow: auto;
+       resize: both;
+       text-overflow: ellipsis;
+      }
+      .card:hover{
+        background: lightblue;
+      }
+     
+    </style>
+</head>
+<body>
+    <!-- {% if data %}
+    {% for i in data %}
+        {{i.title}}
+        {{i.date}}
+        {{i.details}}
+    {% endfor%}
+    {% endif %} -->
+
+
+    <center class="row">
+        <h1 style="color:#b6b67a;">COMPLETED TASK LIST</h1>
+        <hr />
+      </center>
+     
+      <div class="row">
+        {% if data %}
+        <div class="col-md-8">
+          {% for i in data %}
+          <div class="card">
+            <center><b>{{i.title}}</b></center>
+            <hr/>
+            {{i.date}}
+            <hr/>
+            {{i.details}}
+            <br />
+            <br />
+            {% endfor %}
+    {% endif %}
+</body>
+</html>

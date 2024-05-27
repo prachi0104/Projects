@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block page  %}
+<div class="card" style="width:18rem;height:100rem;">
+    <ul class="list-group list-group-flush">
+      <a href="{%url 'addinventory' %}" style="text-decoration: none;"><li class="list-group-item">Add inventory</li></a>
+      <a href="{%url 'showinv' %}" style="text-decoration: none;"><li class="list-group-item">Update Inventory</li></a> 
+      <a href="{%url 'monthlyinv' %}" style="text-decoration: none;"><li class="list-group-item">Create Monthly List</li></a>
+    </ul>
+  </div> 
+
+
+  
+  
+
+{% endblock page %}

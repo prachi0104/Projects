@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<title>Resume</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .info-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+    }
+    
+    .left-info,
+    .right-info {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    
+    @media (max-width: 600px) {
+        .info-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+    
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .section {
+        margin-bottom: 30px;
+    }
+    .section h2 {
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+    }
+    .section p {
+        margin: 5px 0;
+    }
+
+    /* Page break */
+    .new-page {
+        page-break-before: always;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    {% if data %}
+        {% for i in data %}
+            <div class="new-page">
+                <div class="resume">
+                    <h1>{{ i.name }}</h1>
+                    <div class="section">
+                        <h2>Personal Information</h2>
+                        <div class="info-grid">
+                            <div class="left-info">
+                                <p>Name: {{ i.name }}</p>
+                                <p>Phone Number: {{ i.phn_no }}</p>
+                                <p>Email: {{ i.email }}</p>
+                                <p>Address: {{ i.address }}</p>
+                            </div>
+                            <div class="right-info">
+                                <p>Nationality: {{ i.nationality }}</p>
+                                <p>Date of Birth: {{ i.dob }}</p>
+                                <p>Website: {{ i.website }}</p>
+                                <p>Marital Status: {{ i.maritial_status }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="section">
+                        <h2>Objective</h2>
+                        <p>{{ i.details }}</p>
+                    </div>
+                    <hr>
+                    <div class="section">
+                        <h2>Work Experience</h2>
+                        <p>Company: {{ i.company_name }}</p>
+                        <p>Title: {{ i.job_title }}</p>
+                        <p>Start Date: {{ i.start_date }}</p>
+                        <p>End Date: {{ i.end_date }}</p>
+                        <p>Description: {{ i.desc }}</p>
+                    </div>
+                    <hr>
+                    <div class="section">
+                        <h2>Projects</h2>
+                        <p>Project Name: {{ i.project_name }}</p>
+                        <p>Title: {{ i.project_title }}</p>
+                        <p>Start Date: {{ i.p_start_date }}</p>
+                        <p>End Date: {{ i.p_end_date }}</p>
+                        <p>Description: {{ i.p_desc }}</p>
+                    </div>
+                    <hr>
+                    <div class="section">
+                        <h2>Education</h2>
+                        <p>Degree: {{ i.degree }}</p>
+                        <p>Specialization: {{ i.s_degree }}</p>
+                        <p>School: {{ i.school }}</p>
+                        <p>Year of Passing: {{ i.year_of_passing }}</p>
+                    </div>
+                    <hr>
+                    <div class="section">
+                        <h2>Skills</h2>
+                        <p>{{ i.skill_name }}</p>
+                    </div>
+                </div>
+            </div>  
+            <div style="margin-bottom:100px;" class="row">
+                <div class="col text-start">
+                    <form action="{% url 'sendemailview' %}">
+                        {% csrf_token %}
+                        <input class="btn btn-success" type="submit" value="Send email">
+                    </form>
+                </div>
+                <div class="col text-end">
+                    <form action="{% url 'updateresume' i.id %}" method="GET">
+                        {% csrf_token %}
+                        <input class="btn btn-success" type="submit" value="Update resume">
+                    </form>
+                </div>
+            </div>         
+        {% endfor %}
+    {% endif %}
+</div>
+
+</body>
+</html>

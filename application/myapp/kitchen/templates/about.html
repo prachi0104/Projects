@@ -1,0 +1,90 @@
+    {% extends "base.html" %}
+    {% load static %}
+    {% block page %}
+    <style>
+        .image-container {
+            position: relative;
+        }
+        
+        .service-description {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.7); /* Adjust opacity as needed */
+            padding: 50px;
+            margin-top:-690px;
+            width: 100%;
+        }
+        
+        .service-description h1 {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+        
+        .service-description p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        .service-description ol {
+            margin-left: 0;
+            padding-left: 20px;
+            list-style-position: inside;
+        }
+        
+        .service-description ol li {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        body{
+            background-color: rgb(11, 24, 24);
+        }
+
+        
+        
+    </style>
+    <div class="div2" id="about">
+        <div class="image-container">
+            <!-- <img class="img3" src="{% static 'image/food1.jpg' %}" alt=""> -->
+            <div class="service-description">
+                <h1>About Us</h1>
+                <hr>
+                <p>What we are doing</p>
+                <ul>
+                    <li>Welcome to Kitchen inventorey management system, where we believe in simplifying the lives of house makers through innovative solutions. Our journey began with a simple idea: to transform the way households manage their kitchens.</li>
+                    <li>Our system empowers house makers to take control of their kitchens like never before. With just a few clicks, you can effortlessly manage your inventory, track of things which we are using more and more every month through analytics</li>
+                    <li>At Kitchen inventorey management system, we're committed to providing exceptional service and support to our customers. We believe in listening to your feedback and continuously improving our product to meet your evolving needs. Your satisfaction is our top priority, and we're here to help you</li>
+                </ul>
+            </div>
+        </div>
+        <div  style='margin-top: -20px;'class="div2">
+            <div style="background-color: rgba(8, 8, 8, 0.3);"> <!-- 282621 -->
+            <img class="img3" src="{% static 'image/IMG_9558.jpg' %}" alt="">
+            <div style="height:428px" class="content">
+                <h1 style="color:white;padding-top: 20px;">Portfolio</h1>
+                <p style="color:white">
+                Welcome to my corner of the digital world! I'm Brahmbhatt Prachi, a passionate Python/Django developer with a relentless work ethic and a "never give up" attitude.
+                </p>
+                <p style="color:white">
+                   What sets me apart is my unwavering determination and resilience. I thrive in challenging environments, tackling obstacles head-on and refusing to back down until I've found a solution. Failure is not an option for me – it's simply an opportunity to learn and grow.
+                </p>
+                <p style="color:white">
+                    One of my greatest strengths is my ability to learn quickly. Whether it's mastering a new framework or diving into unfamiliar codebases, I have a knack for picking up new concepts and applying them effectively. I'm not afraid to venture outside of my comfort zone, because I know that's where true innovation lies.
+                </p>
+                <p style="color:white">So if you're looking for a Python/Django developer who's as hardworking as they come, who never gives up in the face of adversity, and who's always eager to learn and grow.</p>
+            </div>
+        </div>
+        </div>
+        
+    
+    {% endblock page %}
+    
+
+{% comment %} {% extends "base.html" %}
+{% load static %}
+{% block page  %} {% endcomment %}
+{% comment %}  {% endcomment %}
+
+{% comment %} {% endblock page  %} {% endcomment %}

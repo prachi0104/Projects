@@ -1,0 +1,48 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script><!-- for charts -->
+    <script src="https://kit.fontawesome.com/a977c4270f.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+
+
+      <img class="img1" src="{% static 'image/food3.jpg' %}" alt="Foodimage"> 
+        <nav>
+            <ul>
+               <li><h1 style="margin-right:116px; color:white">Kitchen Inventory</h1></li>
+               <li><a  style="margin-left:-20px;" href="{%url 'home' %}">Home</a></li>
+               <li><a style="margin-left:20px;" href="{%url 'aboutus'%}">About</a></li>
+               <li class="dropdowns">
+                <div class="dropdown">
+                    <button style="margin-left:20px;" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Kitchen Inventory
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a style="margin-left:20px;" class="dropdown-item" href="{%url 'addinventory' %}">Add Inventory</a></li>
+                        <li><a style="margin-left:20px;" class="dropdown-item" href="{%url 'showinv' %}">Update Inventory</a></li>
+                        <li><a style="margin-left:10px;" class="dropdown-item" href="{%url 'monthlyinv' %}">Create Monthly List</a></li>
+                    </ul>
+                </div>
+            </li>
+            
+               <li><a style="margin-left:20px;" href="{% url 'contactus' %}">Contact Us</a></li>
+                <li><a style="color:white;margin-left:90px;margin-right:7px;" class="fa fa-facebook" aria-hidden="true"></i>
+                <li  style="margin-left:7px;"><a  href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+             
+                    {% comment %} <button class="button1">Singup</button> {% endcomment %}
+  
+             </ul>
+        </nav>
+      {% block page %}
+
+      {% endblock page %}
+    
+</body>
+</html>

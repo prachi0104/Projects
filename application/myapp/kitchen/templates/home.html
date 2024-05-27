@@ -1,0 +1,193 @@
+{% load static%}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <script src="https://kit.fontawesome.com/a977c4270f.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+
+
+        #myChart{
+            position: absolute;
+            height:300px !important;
+            width:500px !important;
+            top: 200px;
+            position: absolute;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7); /* Transparent white background */
+            border-radius: 10px;
+        }
+
+        #myChart2{
+            position: absolute;
+            height:290px !important;
+            width:500px !important;
+            float:right !important;
+            margin-top: 0px !important;
+            margin-left:600px;
+            top:200px;
+            float:right;
+            position: absolute;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7); /* Transparent white background */
+            border-radius: 10px;
+        }
+
+        #myChart3{
+            position: absolute;
+            height:500px !important;
+            width:600px !important;
+            align-items: center;
+            margin-left: 299px;
+            margin-top:400px !important ;
+            top:180px;
+            position: absolute;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7); /* Transparent white background */
+            border-radius: 10px;
+            
+        }
+
+        
+        
+    </style>
+
+</head>
+
+<body>
+    <img class="img1" style="opacity: 0.9;" src="{% static 'image/food3.jpg' %}" alt="Foodimage"> 
+    <nav>
+        <ul>
+            <li>
+                <h1 style="margin-right:116px; color:white;">Kitchen Inventory</h1>
+            </li>
+            <li><a style="margin-left:-20px; color:white;" href="{%url 'home' %}">Home</a></li>
+            <li><a style="margin-left:20px; color:white;" href="{%url 'aboutus'%}">About</a></li>
+            <!-- <li><a href="{%url 'kitcheninventory'%}">Kitchen Inventory</a></li>  -->
+            <li class="dropdowns">
+                <div class="dropdown">
+                    <button style="margin-left:20px;color:white;" class="btn btn-secondary dropdown-toggle"
+                        type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Kitchen Inventory
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a style="margin-left:20px; color:black;" class="dropdown-item"
+                                href="{%url 'addinventory' %}">Add Inventory</a></li>
+                        <li><a style="margin-left:20px; color:black;" class="dropdown-item"
+                                href="{%url 'showinv' %}">Update Inventory</a></li>
+                        <li><a style="margin-left:10px; color:black;" class="dropdown-item"
+                                href="{%url 'monthlyinv' %}">Create Monthly List</a></li>
+                    </ul>
+                </div>
+            </li>
+
+            <li><a style="margin-left:20px;color:white;" href="{% url 'contactus' %}">Contact Us</a></li>
+            <li><a href="https://www.facebook.com/" style="color:white;margin-left:90px;margin-right:7px;" class="fa fa-facebook" aria-hidden="true"></a></i>
+                <li  style="margin-left:7px;"><a  href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+             
+            <!-- <button class="button1">Singup</button> -->
+
+            
+
+        </ul>
+    </nav>
+
+
+    <div style="margin-top: 100px;" class="w-10 h-10">
+        <canvas id="myChart"></canvas>
+    </div>
+    
+
+    <div style="margin-top: -280px;">
+        <canvas id="myChart2" style="width:300px; height:300px;"></canvas>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <canvas id="myChart3" style="width:300px; height:300px;"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        // First Chart
+        const ctx = document.getElementById('myChart');
+        const chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: {{ labels| safe }},
+        datasets: [{
+            label: 'Max value ordered',
+            data: {{ data| safe }},
+            backgroundColor: ['#8BC1F7', '#519DE9', '#06C','#004B95','#002F5D'],
+            borderWidth: 2
+                  }]
+              },
+        options: {
+            responsive: true,
+                maintainAspectRation: false,
+                    scales: { }
+        }
+          });
+
+        // Second Chart
+        const ctx2 = document.getElementById('myChart2');
+        const chart2 = new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: {{ labels2| safe }},
+        datasets: [{
+            label: 'Min value ordered',
+            data: {{ data2| safe }},
+            backgroundColor: ['#B2B0EA', '#8481DD', '#5752D1','#3C3D99','#2A265F'],
+            borderWidth: 1
+                  }]
+              },
+        options: {
+            scales: {
+                /* y: {
+                    beginAtZero: true
+                } */
+            }
+        }
+          });
+
+        // Third Chart
+        const ctx3 = document.getElementById('myChart3');
+        const chart3 = new Chart(ctx3, {
+            type: 'doughnut',
+            data: {
+                labels: {{ labels3| safe }},
+        datasets: [{
+            label: 'Total items in db',
+            data: {{ data3| safe }},
+            backgroundColor: ['#BDE2B9', '#7CC674', '#4CB140','#38812F','#23511E'],
+            borderWidth: 1
+                  }]
+              },
+        options: {
+
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+          });
+
+    </script>
+
+
+
+
+</body>
+
+</html>
